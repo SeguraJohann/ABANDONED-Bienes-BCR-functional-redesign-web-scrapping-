@@ -1,9 +1,0 @@
-1- Base de datos para cada bien en la página
-2- Web scraping para tomar datos
-3- Frontend con implementación de bases de datos
-
-Web scraping:
-1- Va al apartado
-2- enlista todos los links
-3- pasa de página hasta que termine
-4- 
