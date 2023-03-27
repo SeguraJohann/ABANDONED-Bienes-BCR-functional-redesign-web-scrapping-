@@ -6,3 +6,4 @@ Web scraping:
 1- Va al apartado
 2- enlista todos los links
 3- pasa de página hasta que termine
+4- 
