@@ -9,13 +9,11 @@ import time
 
 
 def nextPage(url):
-
     options = Options()
     options.headless = True
     driver = webdriver.Chrome(options=options)
     driver.get(url)
     time.sleep(0.5)
-    response = requests.get(url)
     nextButton = driver.find_element(By.CLASS_NAME, "page-item.next").find_element(By.TAG_NAME, "a")
     print("A"*100)
     print(nextButton)
