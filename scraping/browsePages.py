@@ -18,20 +18,22 @@ def nextPage(url):
     driver = webdriver.Chrome(options=options)
     driver.get(url)
     time.sleep(0.5)
+    URLSList=[]
  
     while(True):
         nextButton = driver.find_element(By.CLASS_NAME, "page-item.next").find_element(By.TAG_NAME, "a")
         html = driver.page_source
 
-        print(getURLS(html))
+        URLSList+=getURLS(html)
 
         nextButton.click()
         time.sleep(1)
 
         if(existElement(driver,"page-item.next.disabled")):
             html = driver.page_source
-            print(getURLS(html))
+            URLSList+=getURLS(html)
             break
+    return URLSList
     
 def getURLS(html):
     #url = 'https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas?&tipo_propiedad=1'
@@ -53,5 +55,3 @@ def getURLS(html):
     for i in range(0,len(enlaces)):
         enlaces[i].insert(0,elements[i].text.replace("\n", ""))
     return(enlaces) 
-
-nextPage("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas?&tipo_propiedad=1")

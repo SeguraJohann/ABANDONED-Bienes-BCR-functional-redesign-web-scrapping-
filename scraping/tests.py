@@ -1,4 +1,9 @@
 from propertyData import TakeData
-propertyExampleUrl = "https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=6-167741-000&tipo_propiedad=1&descuento=1"
+from browsePages import nextPage
 
-TakeData(propertyExampleUrl)
+propertyExampleUrl = "https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=6-167741-000&tipo_propiedad=1&descuento=1"
+listOfHouses=nextPage("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas?&tipo_propiedad=1")
+'''for i in listOfHouses:
+    print("-"*20 + "\n")
+    print(i,"\n")
+    TakeData(i[1])'''
