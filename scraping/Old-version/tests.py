@@ -6,4 +6,4 @@ listOfHouses=nextPage("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbie
 for i in listOfHouses:
     print("-"*20 + "\n")
     print(i,"\n")
-    data=TakeData(i[1])
+    TakeData(i[1])

@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
 
+#Boolean function, Checks if a css Class element exists
 def existElement(source, ccsClass):
     try:
         source.find_element(By.CLASS_NAME, ccsClass).find_element(By.TAG_NAME, "a").is_displayed()
@@ -12,6 +13,31 @@ def existElement(source, ccsClass):
         return False
     return True
 
+#For each page, takes all urls and returns it as a list
+#Input Selenium drivers
+#Output Urls in the input (works only with one page)
+def getURLS(html):
+
+    soup = BeautifulSoup(html,'html.parser')
+
+    anchors = soup.find_all('div', {'class': 'table-cell cell100 bienImgBox'})
+
+    elements = soup.find_all(class_='table-cell cell95 block-with-text')
+
+    enlaces=[]
+
+    for div in anchors:
+        a_element = div.find('a')
+        if a_element is not None:
+            enlace = a_element['href']
+            enlaces.append(['https://ventadebienes.bancobcr.com'+ enlace])
+  
+    for i in range(0,len(enlaces)):
+        enlaces[i].insert(0,elements[i].text.replace("\n", ""))
+    return(enlaces) 
+
+# Goes through each page of assets and return a list of ALL assets.
+#To do: Make it return just the list
 def nextPage(url):
     options = Options()
     options.headless = True
@@ -35,23 +61,3 @@ def nextPage(url):
             break
     return URLSList
     
-def getURLS(html):
-    #url = 'https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas?&tipo_propiedad=1'
-
-    soup = BeautifulSoup(html,'html.parser')
-
-    anchors = soup.find_all('div', {'class': 'table-cell cell100 bienImgBox'})
-
-    elements = soup.find_all(class_='table-cell cell95 block-with-text')
-
-    enlaces=[]
-
-    for div in anchors:
-        a_element = div.find('a')
-        if a_element is not None:
-            enlace = a_element['href']
-            enlaces.append(['https://ventadebienes.bancobcr.com'+ enlace])
-  
-    for i in range(0,len(enlaces)):
-        enlaces[i].insert(0,elements[i].text.replace("\n", ""))
-    return(enlaces) 
