@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
@@ -25,15 +24,18 @@ def getURLS(html):
     elements = soup.find_all(class_='table-cell cell95 block-with-text')
 
     enlaces=[]
+    print (enlaces)
 
     for div in anchors:
         a_element = div.find('a')
         if a_element is not None:
             enlace = a_element['href']
             enlaces.append(['https://ventadebienes.bancobcr.com'+ enlace])
-  
+    print (enlaces)
     for i in range(0,len(enlaces)):
         enlaces[i].insert(0,elements[i].text.replace("\n", ""))
+        print ("\n"+"-"*20+"\n")
+        print (enlaces)
     return(enlaces) 
 
 # Goes through each page of assets and return a list of ALL assets.
@@ -41,9 +43,10 @@ def getURLS(html):
 def nextPage(url):
     options = Options()
     options.headless = True
+    options.page_load_strategy = 'eager'
+    options.add_argument("--headless=new")
     driver = webdriver.Chrome(options=options)
     driver.get(url)
-    time.sleep(0.5)
     URLSList=[]
  
     while(True):
@@ -53,7 +56,6 @@ def nextPage(url):
         URLSList+=getURLS(html)
 
         nextButton.click()
-        time.sleep(1)
 
         if(existElement(driver,"page-item.next.disabled")):
             html = driver.page_source
