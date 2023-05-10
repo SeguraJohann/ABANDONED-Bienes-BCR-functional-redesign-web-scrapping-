@@ -1,5 +1,5 @@
-class Houses:
-    def __init__(self, id,title, description, inPrice, finPrice, directions, condominium, floors, garage, rooms, bathrooms, terrace, batteryroom, pool, front, dept, builtArea, area, Province, Canton, District,URL):
+class House:
+    def __init__(self, id=None,title=None, description=None, inPrice=None, finPrice=None, directions=None, condominium=None, floors=None, garage=None, rooms=None, bathrooms=None, terrace=None, batteryroom=None, pool=None, front=None, dept=None, builtArea=None, area=None, Province=None, Canton=None, District=None,URL=None):
         self.id = id
         self.id = title
         self.description = description
