@@ -16,5 +16,5 @@ def TakeData(url):
             aux.append(i)
     return aux
 
-for i in TakeData("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=6-167741-000&tipo_propiedad=1&descuento=1"):
-    print("<" +i.replace("\n", "") + ">")
+#for i in TakeData("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=6-167741-000&tipo_propiedad=1&descuento=1"):
+#    print("<" +i.replace("\n", "") + ">")
