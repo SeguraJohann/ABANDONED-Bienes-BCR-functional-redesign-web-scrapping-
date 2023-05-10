@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-import time
 
 #Boolean function, Checks if a css Class element exists
 def existElement(source, ccsClass):
@@ -24,18 +23,14 @@ def getURLS(html):
     elements = soup.find_all(class_='table-cell cell95 block-with-text')
 
     enlaces=[]
-    print (enlaces)
-
+    
     for div in anchors:
         a_element = div.find('a')
         if a_element is not None:
             enlace = a_element['href']
             enlaces.append(['https://ventadebienes.bancobcr.com'+ enlace])
-    print (enlaces)
     for i in range(0,len(enlaces)):
         enlaces[i].insert(0,elements[i].text.replace("\n", ""))
-        print ("\n"+"-"*20+"\n")
-        print (enlaces)
     return(enlaces) 
 
 # Goes through each page of assets and return a list of ALL assets.

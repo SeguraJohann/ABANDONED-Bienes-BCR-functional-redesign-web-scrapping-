@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+isEmpty = lambda element : (element == "")
 def TakeData(url):
     #"table-cell cell42 detailTextSectionBox"
     response = requests.get(url)
@@ -7,9 +8,13 @@ def TakeData(url):
 
     soup = BeautifulSoup(response.text, 'html.parser')
     container = soup.find('div', {"class":"table-cell cell42 detailTextSectionBox"})
-    label_elements = container.find_all('label')
-    AllText=[]
-    for element in label_elements:
-        print(element.text)
-        AllText.append(element.text)
-    return(AllText)
+    container = (container.get_text())
+    container = container.split("\n")
+    aux = []
+    for i in container:
+        if(not isEmpty(i)):
+            aux.append(i)
+    return aux
+
+for i in TakeData("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=6-167741-000&tipo_propiedad=1&descuento=1"):
+    print("<" +i.replace("\n", "") + ">")
