@@ -1,7 +1,7 @@
 class House:
     def __init__(self, id=None,title=None, description=None, inPrice=None, finPrice=None, directions=None, condominium=None, floors=None, garage=None, rooms=None, bathrooms=None, terrace=None, batteryroom=None, pool=None, front=None, dept=None, builtArea=None, area=None, Province=None, Canton=None, District=None,URL=None):
         self.id = id
-        self.id = title
+        self.title = title
         self.description = description
         self.inPrice = inPrice
         self.finPrice = finPrice
