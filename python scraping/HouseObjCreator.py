@@ -33,90 +33,91 @@ def HCreator(Data):
     for i in Data:
         if "Folio" in i:
             house.id=justInt(i)
-            #print (i+"\n")
-            #print (">"+house.id+"\n")
+            print (i+"\n")
+            print (">"+house.id+"\n")
 
         elif "Condominio" in i:
             house.condominium=makeBool(i)
-            #print (i+"\n")
-            #print (">"+"Condominio "+str(house.condominium)+"\n")
+            print (i+"\n")
+            print (">"+"Condominio "+str(house.condominium)+"\n")
 
         elif "Plantas" in i:
             house.floors=justInt(i)
-            #print (i+"\n")
-            #print (">"+"Plantas "+str(house.floors)+"\n")
+            print (i+"\n")
+            print (">"+"Plantas "+str(house.floors)+"\n")
 
         elif "Cochera" in i:
             house.garage=makeBool(i)
-            #print (i+"\n")
-            #print (">"+str(house.garage)+"\n")
+            print (i+"\n")
+            print (">"+str(house.garage)+"\n")
             
         elif "Habitaciones" in i:
             house.rooms=justInt(i)
-            #print (i+"\n")
-            #print (">"+"Habitaciones "+str(house.rooms)+"\n")
+            print (i+"\n")
+            print (">"+"Habitaciones "+str(house.rooms)+"\n")
             
         elif "Baños" in i:
             house.bathrooms=justInt(i)
-            #print (i+"\n")
-            #print (">"+"Baños "+str(house.bathrooms)+"\n")
+            print (i+"\n")
+            print (">"+"Baños "+str(house.bathrooms)+"\n")
 
         elif "Terraza" in i:
             house.terrace=makeBool(i)
-            #print (i+"\n")
-            #print (">"+str(house.terrace)+"\n")
+            print (i+"\n")
+            print (">"+str(house.terrace)+"\n")
 
         elif "Pilas" in i:
             house.batteryroom=makeBool(i)
-            #print (i+"\n")
-            #print (">"+str(house.batteryroom)+"\n")
+            print (i+"\n")
+            print (">"+str(house.batteryroom)+"\n")
 
         elif "Servicio" in i:
             house.maidsroom=makeBool(i)
-            #print (i+"\n")
-            #print (">"+str(house.maidsroom)+"\n")
+            print (i+"\n")
+            print (">"+str(house.maidsroom)+"\n")
 
         elif "Zona Verde" in i:
             house.greenarea=makeBool(i)
-            #print (i+"\n")
-            #print (">"+str(house.greenarea)+"\n")
+            print (i+"\n")
+            print (">"+str(house.greenarea)+"\n")
 
         elif "Piscina" in i:
             house.pool=makeBool(i)
-            #print (i+"\n")
-            #print (">"+str(house.pool)+"\n")
+            print (i+"\n")
+            print (">"+str(house.pool)+"\n")
 
         elif "Frente" in i:
             house.front=justFloats(i)
-            #print (i+"\n")
-            #print (">"+"Frente "+str(house.front)+"\n")
+            print (i+"\n")
+            print (">"+"Frente "+str(house.front)+"\n")
 
         elif "Fondo" in i:
             house.dept=justFloats(i)
-            #print (i+"\n")
-            #print (">"+"Fondo "+str(house.dept)+"\n")
+            print (i+"\n")
+            print (">"+"Fondo "+str(house.dept)+"\n")
 
         elif "área del terreno" in i:
             house.area=justFloats(i)
-            #print (i+"\n")
-            #print (">"+"Condominio "+str(house.area)+"\n")
+            print (i+"\n")
+            print (">"+"Condominio "+str(house.area)+"\n")
 
         elif "área de construcción" in i:
             house.builtArea=justFloats(i)
-            #print (i+"\n")
-            #print (">"+"Condominio "+str(house.builtArea)+"\n")
+            print (i+"\n")
+            print (">"+"Condominio "+str(house.builtArea)+"\n")
 
         elif "precio inicial" in i:
             house.inPrice=justFloats(i)
-            #print (i+"\n")
-            #print (">"+"Condominio "+str(house.inPrice)+"\n")
+            print (i+"\n")
+            print (">"+"Condominio "+str(house.inPrice)+"\n")
 
         elif "precio de venta final" in i:
             house.finPrice=justFloats(i)
-            #print (i+"\n")
-            #print (">"+"Condominio "+str(house.finPrice)+"\n")
+            print (i+"\n")
+            print (">"+"Condominio "+str(house.finPrice)+"\n")
 
 
 
 
-#HCreator(TakeData("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=6-167741-000&tipo_propiedad=1&descuento=1"))
+HCreator(TakeData("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=6-167741-000&tipo_propiedad=1&descuento=1")) 
+HCreator(TakeData("https://ventadebienes.bancobcr.com/wps/portal/bcrb/bcrbienes/bienes/Casas/detalle/?codigo=4-106506-000&tipo_propiedad=1&descuento=1"))
