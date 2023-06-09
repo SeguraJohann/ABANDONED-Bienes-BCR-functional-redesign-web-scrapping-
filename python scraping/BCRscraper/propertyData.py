@@ -4,6 +4,7 @@ isEmpty = lambda element : (element == "")
 def TakeData(url):
     #"table-cell cell42 detailTextSectionBox"
     response = requests.get(url)
+    #print("Access: "+url)
 
 
     soup = BeautifulSoup(response.text, 'html.parser')
