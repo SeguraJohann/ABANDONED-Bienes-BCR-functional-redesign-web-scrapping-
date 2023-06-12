@@ -14,7 +14,14 @@ canton = data[['Province','Canton']].copy()
 canton = canton.drop_duplicates()
 canton = canton.reset_index(drop=True)
 canton.index = canton.index + 1
-#print(data)
+canton['Index'] = canton.index
+
+district = data[['Canton','District']].copy()
+district = district.drop_duplicates()
+district = district.reset_index(drop=True)
+district.index = district.index + 1
+
+print(district)
 '''print(provincias)
 print(provincias[provincias['Province'] == 'San José'])
 #print(type(provincias))
@@ -28,8 +35,11 @@ for indx, values in canton.iterrows():
     print(provincias[provincias['Province'] == values["Province"]]['Index'])'''
 #print(provincias)
 for _, values in provincias.iterrows():
-
     canton.loc[canton['Province'] == values['Province'],'Province'] = values['Index']
-    print(canton[canton['Province'] == values['Province']])
 
-print(canton[:])
+print(canton)
+
+for _, values in canton.iterrows():
+    district.loc[district['Canton'] == values['Canton'],'Canton'] = values['Index']
+
+print(district)
