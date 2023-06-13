@@ -9,31 +9,19 @@ provincias = provincias.reset_index(drop=True)
 provincias.index = provincias.index + 1
 provincias['Index'] = provincias.index
 
-
+#Creates a df the Canton column only, deletes duplicates values and reset the indexes and add it as a column
 canton = data[['Province','Canton']].copy()
 canton = canton.drop_duplicates()
 canton = canton.reset_index(drop=True)
 canton.index = canton.index + 1
 canton['Index'] = canton.index
 
+#Creates a df the districts column only, deletes duplicates values and reset indexes
 district = data[['Canton','District']].copy()
 district = district.drop_duplicates()
 district = district.reset_index(drop=True)
 district.index = district.index + 1
 
-print(district)
-'''print(provincias)
-print(provincias[provincias['Province'] == 'San José'])
-#print(type(provincias))
-
-
-
-for indx, values in canton.iterrows():
-    #print(indx, values)
-    #print(indx)
-    print(values["Province"],values["Canton"])
-    print(provincias[provincias['Province'] == values["Province"]]['Index'])'''
-#print(provincias)
 for _, values in provincias.iterrows():
     canton.loc[canton['Province'] == values['Province'],'Province'] = values['Index']
 
