@@ -43,3 +43,6 @@ for _, values in canton.iterrows():
     district.loc[district['Canton'] == values['Canton'],'Canton'] = values['Index']
 
 print(district)
+print("Cantones")
+for _, values in canton.iterrows():
+    print(values["Canton"], values["Index"])
