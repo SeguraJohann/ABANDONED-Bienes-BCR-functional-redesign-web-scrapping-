@@ -34,3 +34,14 @@ print(district)
 print("Cantones")
 for _, values in canton.iterrows():
     print(values["Canton"], values["Index"])
+
+
+####Postgrest######
+
+conn = psycopg2.connect(
+    host=input("nombre host:"),
+    database=input("nombre base datos: "),
+    user=input("nombre usuario: "),
+    password=input("contraseña: ")
+)
+cursor = conn.cursor()
