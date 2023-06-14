@@ -1,5 +1,6 @@
 import pandas as pd
 import psycopg2
+from psycopg2 import Error
 
 #Creates a df the Province column only, deletes duplicates values and reset the indexes from 1 to 7
 data = pd.read_csv('Districts_of_Costa_Rica_1.csv')
@@ -38,10 +39,14 @@ for _, values in canton.iterrows():
 
 ####Postgrest######
 
-conn = psycopg2.connect(
-    host=input("nombre host:"),
-    database=input("nombre base datos: "),
-    user=input("nombre usuario: "),
-    password=input("contraseña: ")
-)
-cursor = conn.cursor()
+try:
+    conn = psycopg2.connect(
+        host=input("nombre host:"),
+        database=input("nombre base datos: "),
+        user=input("nombre usuario: "),
+        password=input("contraseña: ")
+    )
+    cursor = conn.cursor()
+except (Exception, Error) as error:
+    print("Error al conectar a la base de datos:", error)
+    
