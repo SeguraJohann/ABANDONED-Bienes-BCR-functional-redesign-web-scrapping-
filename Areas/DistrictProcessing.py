@@ -61,7 +61,36 @@ cursor = conn.cursor()
 sql = 'SELECT * FROM "Provincias"'
 cursor.execute(sql)
 results = cursor.fetchall()
-for row in results:
-    print(row)
+
+print(provincias)
+tablaProvincia = '"Provincias"'
+tablaCanton = '"cantones"'
+tablaDistrito = '"distritos"'
+
+#Insert Province
+for index, row in provincias.iterrows():
+    provincia = row["Province"]
+    id_provincia = row["Index"]
+
+    # Crear la consulta SQL para insertar los datos
+    consulta = f"INSERT INTO {tablaProvincia} (id, name) VALUES ({id_provincia}, '{provincia}')"
+
+    # Ejecutar la consulta
+    cursor.execute(consulta)
+#Insert Canton
+'''
+for index, row in provincias.iterrows():
+    provincia = row["Province"]
+    id_provincia = row["Index"]
+
+    # Crear la consulta SQL para insertar los datos
+    consulta = f"INSERT INTO {tablaProvincia} (id, name) VALUES ({id_provincia}, '{provincia}')"
+
+    # Ejecutar la consulta
+    cursor.execute(consulta)'''
+
+conn.commit()
+
+# Cerrar la conexión
 cursor.close()
 conn.close()
